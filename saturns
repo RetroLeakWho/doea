@@ -1,0 +1,50 @@
+	CloseButton.BorderSizePixel = 0
+	CloseButton.Position = UDim2.new(0.896000028, 0, 0, 0)
+	CloseButton.Size = UDim2.new(0, 39, 0, 39)
+	CloseButton.Font = Enum.Font.FredokaOne
+	CloseButton.Text = "X"
+	CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+	CloseButton.TextScaled = true
+	CloseButton.TextSize = 14.000
+	CloseButton.TextWrapped = true
+	
+	RainbowText(Tittle)
+	RainbowText(CloseButton)
+
+	for i,v in pairs(list_game) do
+		local TextLabel = Instance.new("TextLabel")
+		TextLabel.Parent = ScrollingFrame
+		TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel.BackgroundTransparency = 1.000
+		TextLabel.Size = UDim2.new(0, 353, 0, 24)
+		TextLabel.Font = Enum.Font.Highway
+		TextLabel.Text = "		+ " .. v
+		TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel.TextScaled = true
+		TextLabel.TextSize = 14.000
+		TextLabel.TextTransparency = 0.500
+		TextLabel.TextWrapped = true
+		TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+		RainbowText(TextLabel)
+	end
+	
+	CloseButton.MouseButton1Click:Connect(function()
+		game.Debris:AddItem(SupportUi, 0)
+	end)
+end
+
+--MakePrGui()
+ttytPr()
+CreateSupportList({"Pet Simulator X","GPO - Grand Piece Online","Blox Fruit","King Legacy","Anime Soul Simulator","Anime Defense Simulator","Ro Fruit","Collect All Pets","Tower of Hell","Break In","Arsenal",
+"Mad City","Viet Nam Piece","Field Trip Z","Giant Survival!",
+	"Murder Mystery 2","steve's one piece","Anime Fighters Simulator","Tradelands","Dungeon Quest","Two Piece"
+})
+_G.HoHoLoaded = true
+if getgenv().Key and listPre[game.GameId] ~= nil then
+	getgenv().messagebox = function()end
+	loadstring(listPre[tonumber(game.GameId)])()
+elseif not getgenv().Key and list[game.GameId] ~= nil then
+	loadstring(list[tonumber(game.GameId)])()
+else
+	game.Players.LocalPlayer:Kick("game not support, discord.gg/hohohub")
+end
